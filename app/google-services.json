@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "740014553556",
+    "project_id": "waterreservoir-96ba5",
+    "storage_bucket": "waterreservoir-96ba5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740014553556:android:1ee0c8791f43bf6e05fe41",
+        "android_client_info": {
+          "package_name": "com.example.iot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBgmT1IiGWkExT_Qapm1A3JSML8k3EoD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

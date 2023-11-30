@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bot_home_menu"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item android:id="@+id/bot_grafik_menu"
+        android:title="Grafik"
+        android:icon="@drawable/graphic"/>
+    <item android:id="@+id/bot_Profile_menu"
+        android:title="Profile"
+        android:icon="@drawable/profile"/>
+
+</menu>

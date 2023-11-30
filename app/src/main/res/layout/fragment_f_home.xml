@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/biruelektrik"
+    tools:context=".fHome">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:cardBackgroundColor="#80DFDFDF"
+        android:outlineSpotShadowColor="@color/white"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="15dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtoren1"
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_marginVertical="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/toren1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toren 1"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemakaian"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13%"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <Switch
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:progressTint="@color/greenLight"
+                    android:secondaryProgressTint="@color/merah"
+                    android:textStyle="bold"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtoren2"
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_marginVertical="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardtoren1">
+
+                <TextView
+                    android:id="@+id/toren2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toren 2"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemakaian"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13%"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/white"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/merah"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtoren3"
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_marginVertical="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardtoren2">
+
+                <TextView
+                    android:id="@+id/toren3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toren 3"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemakaian"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13%"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/white"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/merah"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtoren4"
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_marginVertical="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardtoren3">
+
+                <TextView
+                    android:id="@+id/toren4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toren 4"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemakaian"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13%"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/white"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/merah"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardtoren5"
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_marginVertical="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardtoren4">
+
+                <TextView
+                    android:id="@+id/toren5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toren 5"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemakaian"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13%"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"/>
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/white"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/merah"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</ScrollView>
+
+</FrameLayout>

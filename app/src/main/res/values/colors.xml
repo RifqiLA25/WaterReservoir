@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="biruelektrik">#7DF9FF</color>
+    <color name="birubiasa">#00A0E9</color>
+    <color name="birudark">#00008b</color>
+    <color name="merah">#FF0000</color>
+    <color name="red_200">#ff7961</color>
+    <color name="yellow_300">#FFD600</color>
+    <color name="yellow_700">#FF6D00</color>
+    <color name="almostblack">#222</color>
+    <color name="greenLight">#00FF00</color>
+    <color name="greenDark">#006400</color>
+
+</resources>
