@@ -26,6 +26,7 @@
             android:padding="16dp"
             android:hint="Enter phone number"
             android:gravity="start|center_vertical"
+            android:textColorHint="@color/lavender"
             android:textColor="@color/lavender"/>
         <Button
             android:layout_width="match_parent"

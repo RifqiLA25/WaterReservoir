@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/biruelektriekabu"
+    android:backgroundTint="@color/greenLight"
     tools:context=".MainActivity3">
     <EditText
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:background="@drawable/lavender_border"
         android:hint="Enter phone number"
         android:textSize="20sp"
-        android:textColor="@color/lavender"
+        android:textColorHint="@color/lavender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchButton"
         android:text="Search"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"

@@ -7,7 +7,7 @@ import android.os.Handler
 
 class SplashScreen : AppCompatActivity() {
 
-    private val SPLASH_TIME_OUT:Long = 20000 //delay 3 detik
+    private val SPLASH_TIME_OUT:Long = 3000 //delay 3 detik
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

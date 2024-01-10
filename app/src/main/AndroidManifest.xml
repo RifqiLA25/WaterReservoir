@@ -30,7 +30,7 @@
             android:name=".CreateActivity"
             android:exported="false"/>
         <activity
-            android:name=".SplashScreen"
+            android:name=".Main2Activity"
             android:exported="false" />
         <activity
             android:name=".BMKG.ListViewActiviry"
@@ -60,7 +60,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".Main2Activity"
+            android:name=".SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

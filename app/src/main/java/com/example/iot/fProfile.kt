@@ -58,7 +58,7 @@ class fProfile : Fragment(), AdapterProfile.OnItemClickListener {
         if (selectedItem.textview3.contains(">")) {
             // Implement navigation logic based on the item text
             when (selectedItem.textview1) {
-                "Profile" -> startActivity(Intent(requireContext(), BMKGActivity::class.java))
+                "Profile" -> startActivity(Intent(requireContext(), Main2Activity::class.java))
                 "Data BMKG" -> startActivity(Intent(requireContext(), BMKGActivity::class.java))
                 "Data BMKG List" -> startActivity(Intent(requireContext(), ListViewActiviry::class.java))
                 // Add more cases for other options as needed

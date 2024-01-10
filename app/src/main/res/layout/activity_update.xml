@@ -27,7 +27,8 @@
             android:padding="16dp"
             android:hint="Enter phone number"
             android:gravity="start|center_vertical"
-            android:textColor="@color/lavender"/>
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -39,7 +40,8 @@
             android:padding="16dp"
             android:hint="Enter name"
             android:gravity="start|center_vertical"
-            android:textColor="@color/lavender"/>
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -49,9 +51,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:padding="16dp"
-            android:hint="Enter operator"
+            android:hint="Enter Email"
             android:gravity="start|center_vertical"
-            android:textColor="@color/lavender"/>
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -61,8 +64,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:padding="16dp"
-            android:hint="Enter location"
+            android:hint="Enter Alamat"
             android:gravity="start|center_vertical"
+            android:textColorHint="@color/lavender"
             android:textColor="@color/lavender"/>
         <Button
             android:layout_width="match_parent"
