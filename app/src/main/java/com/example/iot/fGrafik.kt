@@ -2,11 +2,25 @@ package com.example.iot
 
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.db.williamchart.view.BarChartView
+import com.db.williamchart.view.LineChartView
+import com.example.iot.config.DataConfigWaterGrafik
 import com.example.iot.databinding.FragmentFGrafikBinding
+import com.example.iot.model.ModelAverage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +40,19 @@ class fGrafik : Fragment() {
     private var _binding: FragmentFGrafikBinding? = null
     private val binding get() = _binding !!
 
+    private val lineSet = mutableListOf<Pair<String, Float>>()
+    private val barSet = mutableListOf<Pair<String, Float>>()
+
+    private lateinit var barChartView: BarChartView
+    private lateinit var lineChartView: LineChartView
+
+    private val animationDuration = 1000L
+    private val handler = Handler()
+
+
+    private val scope = CoroutineScope(Dispatchers.Main + Job())
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,27 +66,107 @@ class fGrafik : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFGrafikBinding.inflate(layoutInflater)
-        // Inflate the layout for this fragment
-        binding.apply {
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupCharts()
+        fetchDataFromApi()
+        startAutoRefresh()
+
+    }
+
+    private fun setupCharts() {
+        binding.apply {
             barChart.animation.duration = animationDuration
             barChart.animate(barSet)
-
             lineChart.gradientFillColors = intArrayOf(
                 Color.parseColor("#64B5F6"),
                 Color.TRANSPARENT
             )
-            lineChart.animation.duration= animationDuration
+            lineChart.animation.duration = animationDuration
             lineChart.animate(lineSet)
-            lineChart.onDataPointTouchListener={index, _, _ ->
-                tvChartData.text= lineSet.toList()[index].second.toString()
-
+            lineChart.onDataPointTouchListener = { index, _, _ ->
+                tvChartData.text = lineSet.toList()[index].second.toString()
             }
-
         }
+    }
+    private fun fetchDataFromApi() {
+        // Assuming you have a Retrofit service for fetching earthquake data
+        // Make sure to replace ApiService and getDataGempa with your actual Retrofit service
+        DataConfigWaterGrafik().getService()
+            .getDataWaterG()
+            .enqueue(object : Callback<ModelAverage> {
+                override fun onResponse(
+                    call: Call<ModelAverage>,
+                    response: Response<ModelAverage>
+                ) {
+                    if (response.isSuccessful) {
+                        parseData(response.body())
+                        updateCharts()
+                    }
+                }
 
+                override fun onFailure(call: Call<ModelAverage>, t: Throwable) {
 
-        return binding.root
+                }
+
+            })
+    }
+
+    private fun startAutoRefresh() {
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                scope.launch {
+                    startAutoRefresh()
+                }
+            }
+        }, updateInterval)
+    }
+
+    private fun parseData(modelAverage: ModelAverage?) {
+        modelAverage?.let {
+            it.data?.let { data ->
+                val senin = data.senin ?: 0
+                val selasa = data.selasa ?: 0
+                val rabu = data.rabu ?: 0
+                val kamis = data.kamis ?: 0
+                val jumat = data.jumat ?: 0
+                val sabtu = data.sabtu ?: 0
+                val minggu = data.minggu ?: 0
+
+                lineSet.apply {
+                    clear()
+                    add("Senin" to senin.toFloat())
+                    add("Selasa" to selasa.toFloat())
+                    add("Rabu" to rabu.toFloat())
+                    add("Kamis" to kamis.toFloat())
+                    add("Jumat" to jumat.toFloat())
+                    add("Sabtu" to sabtu.toFloat())
+                    add("Minggu" to minggu.toFloat())
+                }
+
+                barSet.apply {
+                    clear()
+                    add("Senin" to senin.toFloat())
+                    add("Selasa" to selasa.toFloat())
+                    add("Rabu" to rabu.toFloat())
+                    add("Kamis" to kamis.toFloat())
+                    add("Jumat" to jumat.toFloat())
+                    add("Sabtu" to sabtu.toFloat())
+                    add("Minggu" to minggu.toFloat())
+                }
+            }
+        }
+    }
+
+    private fun updateCharts() {
+        binding.apply {
+            // Add new data
+            lineChart.animate(lineSet)
+            barChart.animate(barSet)
+        }
     }
 
     override fun onDestroy() {
@@ -68,23 +175,9 @@ class fGrafik : Fragment() {
     }
 
     companion object {
-        private val lineSet = listOf(
-            "label1" to 4.5F,
-            "label2" to 6F,
-            "label3" to 10F,
-            "label4" to 3F,
-            "label5" to 2.5F,
-            "label6" to 5.5F,
-        )
-        private val barSet = listOf(
-            "JAN" to 4F,
-            "FEB" to 7F,
-            "MAR" to 2F,
-            "MAY" to 2.3F,
-            "APR" to 5F,
-            "JUN" to 4F
-        )
         private const val animationDuration = 1000L
+        private const val updateInterval = 1000L
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

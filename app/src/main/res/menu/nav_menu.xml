@@ -3,12 +3,12 @@
 
     <item android:id="@+id/bot_home_menu"
         android:title="Home"
-        android:icon="@drawable/home"/>
+        android:icon="@drawable/home" />
     <item android:id="@+id/bot_grafik_menu"
         android:title="Grafik"
         android:icon="@drawable/graphic"/>
     <item android:id="@+id/bot_Profile_menu"
-        android:title="Profile"
-        android:icon="@drawable/profile"/>
+        android:title="Setting"
+        android:icon="@drawable/setting"/>
 
 </menu>

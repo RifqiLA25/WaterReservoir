@@ -1,59 +1,71 @@
 package com.example.iot
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.iot.BMKG.BMKGActivity
+import com.example.iot.BMKG.BMKGActivityList
+import com.example.iot.BMKG.ListViewActiviry
+import com.example.iot.adaptor.AdapterProfile
+import com.example.iot.model.ModelClass
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class fProfile : Fragment(), AdapterProfile.OnItemClickListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [fProfile.newInstance] factory method to
- * create an instance of this fragment.
- */
-class fProfile : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var mrecyclerView: RecyclerView
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var userList: MutableList<ModelClass>
+    private lateinit var adapter: AdapterProfile
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_f_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_f_profile, container, false)
+
+        initData()
+        initRecyclerView(view)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fProfile.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            fProfile().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun initRecyclerView(view: View) {
+        mrecyclerView = view.findViewById(R.id.RecyclerView)
+        layoutManager = LinearLayoutManager(requireContext())
+        layoutManager.orientation = RecyclerView.VERTICAL
+        mrecyclerView.layoutManager = layoutManager
+        adapter = AdapterProfile(userList, this)
+        mrecyclerView.adapter = adapter
+    }
+
+    private fun initData() {
+        userList = mutableListOf()
+
+        userList.add(ModelClass(R.drawable.profile1, "Profile", "Name, Email, Phone", ">", "_______________________________________"))
+        userList.add(ModelClass(R.drawable.bmkg, "Data BMKG", "Mengambil API Public BMKG", ">", "_______________________________________"))
+        userList.add(ModelClass(R.drawable.bmkg, "Data BMKG List", "Mengambil API Public BMKG", ">", "_______________________________________"))
+        userList.add(ModelClass(R.drawable.keluar, "Log Out", "Tekan Untuk Keluar", ">", "_______________________________________"))
+    }
+
+    override fun onItemClick(position: Int) {
+        val selectedItem = userList[position]
+
+        // Check if the selected item contains the ">" text
+        if (selectedItem.textview3.contains(">")) {
+            // Implement navigation logic based on the item text
+            when (selectedItem.textview1) {
+                "Profile" -> startActivity(Intent(requireContext(), BMKGActivity::class.java))
+                "Data BMKG" -> startActivity(Intent(requireContext(), BMKGActivity::class.java))
+                "Data BMKG List" -> startActivity(Intent(requireContext(), ListViewActiviry::class.java))
+                // Add more cases for other options as needed
+                else -> {
+                    // Handle unknown case
                 }
             }
+        }
     }
 }

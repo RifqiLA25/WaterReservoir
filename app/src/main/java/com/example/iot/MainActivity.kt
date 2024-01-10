@@ -2,9 +2,7 @@ package com.example.iot
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
-import com.example.iot.databinding.ActivityForgotPasswordBinding
 import com.example.iot.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

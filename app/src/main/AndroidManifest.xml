@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,19 +13,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IoT"
-        tools:targetApi="31">
+        tools:targetApi="34">
         <activity
-            android:name=".TorenActivity"
+            android:name=".MainActivity3"
             android:exported="false" />
         <activity
+            android:name=".DeleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".BMKG.ListViewActiviry"
+            android:exported="false" />
+        <activity
+            android:name=".mencoba.TemperatureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BMKG.BMKGActivityList"
+            android:exported="false" />
+        <activity
+            android:name=".BMKG.BMKGActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TorenActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
@@ -32,10 +58,16 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Main2Activity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

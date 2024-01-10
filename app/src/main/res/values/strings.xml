@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IoT</string>
+    <string name="app_name">Water Reservoir</string>
     <string name="txt_wlcm">Welcome</string>
     <string name="TXT_LOGIN">LOGIN</string>
     <string name="txt_inputtext">Input Your Email</string>

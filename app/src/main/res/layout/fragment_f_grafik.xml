@@ -35,7 +35,6 @@
                         android:id="@+id/tvChartName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="32dp"
                         android:text="Line Chart"
                         android:textColor="@color/birudark"
                         android:textSize="30sp"
@@ -43,13 +42,12 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
 
-
                     <TextView
                         android:id="@+id/tvChartData"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:paddingBottom="16dp"
+                        android:paddingBottom="5dp"
                         app:layout_constraintBottom_toTopOf="@id/lineChart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +56,13 @@
                     <com.db.williamchart.view.LineChartView
                         android:id="@+id/lineChart"
                         android:layout_width="0dp"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        app:chart_axis="none"
+                        android:layout_height="180dp"
+                        android:padding="10dp"
+                        android:layout_marginHorizontal="15dp"
+                        app:chart_axis="x"
                         app:chart_gridEffect="dotted"
                         app:chart_labelsColor="@color/birudark"
-                        app:chart_labelsSize="15dp"
+                        app:chart_labelsSize="10dp"
                         app:chart_lineColor="#ffffff"
                         app:chart_lineThickness="6dp"
                         app:chart_smoothLine="true"
