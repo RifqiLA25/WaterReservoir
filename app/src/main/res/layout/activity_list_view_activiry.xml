@@ -11,9 +11,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="JUDUL"
-        android:textSize="32sp"
-        android:textAlignment="center"/>
+        android:text="Data Gempa Terkini"
+        android:textAlignment="center"
+        android:textSize="32sp" />
 
     <Space
         android:layout_width="match_parent"
