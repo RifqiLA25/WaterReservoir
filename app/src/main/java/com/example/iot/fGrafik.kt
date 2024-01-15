@@ -11,7 +11,9 @@ import com.db.williamchart.view.BarChartView
 import com.db.williamchart.view.LineChartView
 import com.example.iot.config.DataConfigWaterGrafik
 import com.example.iot.databinding.FragmentFGrafikBinding
+import com.example.iot.model.Kapasitas
 import com.example.iot.model.ModelAverage
+import com.example.iot.model.ModelGrafik1Water
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -97,18 +99,25 @@ class fGrafik : Fragment() {
         // Make sure to replace ApiService and getDataGempa with your actual Retrofit service
         DataConfigWaterGrafik().getService()
             .getDataWaterG()
-            .enqueue(object : Callback<ModelAverage> {
+            .enqueue(object : Callback<ModelGrafik1Water>{
                 override fun onResponse(
-                    call: Call<ModelAverage>,
-                    response: Response<ModelAverage>
+                    call: Call<ModelGrafik1Water>,
+                    response: Response<ModelGrafik1Water>
                 ) {
                     if (response.isSuccessful) {
-                        parseData(response.body())
-                        updateCharts()
+                        val modelGrafik1Water = response.body()
+                        if (modelGrafik1Water != null) {
+                            parseData(modelGrafik1Water)
+                            updateCharts()
+                        } else {
+                            // Handle the case when response.body() is null
+                        }
+                    } else {
+                        // Handle the case when the response is not successful
                     }
                 }
 
-                override fun onFailure(call: Call<ModelAverage>, t: Throwable) {
+                override fun onFailure(call: Call<ModelGrafik1Water>, t: Throwable) {
 
                 }
 
@@ -125,37 +134,48 @@ class fGrafik : Fragment() {
         }, updateInterval)
     }
 
-    private fun parseData(modelAverage: ModelAverage?) {
-        modelAverage?.let {
+    private fun parseData(modelGrafik1Water: ModelGrafik1Water) {
+        modelGrafik1Water?.let {
             it.data?.let { data ->
-                val senin = data.senin ?: 0
-                val selasa = data.selasa ?: 0
-                val rabu = data.rabu ?: 0
-                val kamis = data.kamis ?: 0
-                val jumat = data.jumat ?: 0
-                val sabtu = data.sabtu ?: 0
-                val minggu = data.minggu ?: 0
+                val kapasitas = data.kapasitas
+                val debitair = data.debitAir
+
+                val senin = kapasitas?.senin?: 0.0f
+                val selasa = kapasitas?.selasa?: 0.0f
+                val rabu = kapasitas?.rabu?: 0.0f
+                val kamis = kapasitas?.kamis?: 0.0f
+                val jumat = kapasitas?.jumat?: 0.0f
+                val sabtu = kapasitas?.sabtu?: 0.0f
+                val minggu = kapasitas?.minggu?: 0.0f
+
+                val senin1 = debitair?.senin?: 0.0f
+                val selasa1 = debitair?.selasa?: 0.0f
+                val rabu1 = debitair?.rabu?: 0.0f
+                val kamis1 = debitair?.kamis?: 0.0f
+                val jumat1 = debitair?.jumat?: 0.0f
+                val sabtu1 = debitair?.sabtu?: 0.0f
+                val minggu1 = debitair?.minggu?: 0.0f
 
                 lineSet.apply {
                     clear()
-                    add("Senin" to senin.toFloat())
-                    add("Selasa" to selasa.toFloat())
-                    add("Rabu" to rabu.toFloat())
-                    add("Kamis" to kamis.toFloat())
-                    add("Jumat" to jumat.toFloat())
-                    add("Sabtu" to sabtu.toFloat())
-                    add("Minggu" to minggu.toFloat())
+                    add("Senin" to senin)
+                    add("Selasa" to selasa)
+                    add("Rabu" to rabu)
+                    add("Kamis" to kamis)
+                    add("Jumat" to jumat)
+                    add("Sabtu" to sabtu)
+                    add("Minggu" to minggu)
                 }
 
                 barSet.apply {
                     clear()
-                    add("Senin" to senin.toFloat())
-                    add("Selasa" to selasa.toFloat())
-                    add("Rabu" to rabu.toFloat())
-                    add("Kamis" to kamis.toFloat())
-                    add("Jumat" to jumat.toFloat())
-                    add("Sabtu" to sabtu.toFloat())
-                    add("Minggu" to minggu.toFloat())
+                    add("Senin" to senin1)
+                    add("Selasa" to selasa1)
+                    add("Rabu" to rabu1)
+                    add("Kamis" to kamis1)
+                    add("Jumat" to jumat1)
+                    add("Sabtu" to sabtu1)
+                    add("Minggu" to minggu1)
                 }
             }
         }

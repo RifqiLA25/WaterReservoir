@@ -1,6 +1,8 @@
 package com.example.iot.config
 
-import com.example.iot.model.ModelAverage
+
+import com.example.iot.model.Kapasitas
+import com.example.iot.model.ModelGrafik1Water
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -20,7 +22,7 @@ class DataConfigWaterGrafik {
     }
     fun getRetrofit() : Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://backendparkol-m77laoox7a-uc.a.run.app/")
+            .baseUrl("https://rk54tnpc-3000.asse.devtunnels.ms/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -29,6 +31,6 @@ class DataConfigWaterGrafik {
 }
 
 interface WaterReservoirGrafik {
-    @GET("average1")
-    fun getDataWaterG(): Call<ModelAverage>
+    @GET("dataperhari")
+    fun getDataWaterG(): Call<ModelGrafik1Water>
 }
